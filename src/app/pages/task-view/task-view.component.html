@@ -3,20 +3,38 @@
     <div class="sidebar has-background-white">
       <h1 class="title has-text-primary">Lists</h1>
       <div class="list-menu">
-        <a class="list-menu-item is-active"><p>List #1</p></a>
-        <a class="list-menu-item"><p>List #1</p></a>
-        <a class="list-menu-item"><p>List #1</p></a>
+        <a
+          class="list-menu-item"
+          *ngFor="let list of lists"
+          [routerLink]="['/lists', list._id]"
+          routerLinkActive="is-active"
+        >
+          <p>{{ list.title }}</p>
+        </a>
       </div>
-      <button class="button is-primary" (click)="createNewList()">
+      <button class="button is-primary has-text-white" routerLink="/new-list">
         + New List
       </button>
     </div>
     <div class="task-list-container has-background-light">
       <h1 class="title has-text-primary">Tasks</h1>
       <!-- Task Element -->
-      <div class="task"><p>Something to do</p></div>
-      <div class="task"><p>Something to do</p></div>
-      <div class="task complete"><p>Something to do</p></div>
+      <div class="task" *ngFor="let task of tasks">
+        <p>{{ task.title }}</p>
+      </div>
+      <button class="circle-add-button button is-primary">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          fill="white"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>
