@@ -36,4 +36,11 @@ export class TaskViewComponent implements OnInit {
       console.log(this.lists);
     });
   }
+
+  onTaskClick(task: Task) {
+    this.taskService.completeTask(task).subscribe(() => {
+      console.log('Completed Successfully');
+      task.completed = !task.completed;
+    });
+  }
 }

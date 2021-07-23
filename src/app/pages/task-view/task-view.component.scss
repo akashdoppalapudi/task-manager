@@ -62,9 +62,9 @@
   background: #fff;
   padding: 15px 20px;
   margin-top: 10px;
+  cursor: pointer;
 
   &:not(.complete) {
-    cursor: pointer;
     transition: box-shadow 0.2s ease, transform 0.2s ease;
 
     &:active {
